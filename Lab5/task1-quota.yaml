@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: zad5-quota
+  namespace: zad5
+spec:
+  hard:
+    cpu: "2000"
+    memory: 1500Mi
+    pods: "10"
