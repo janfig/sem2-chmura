@@ -2,14 +2,13 @@
 Jan Figura GL01\14.07.2023
 
 # zad4
-Wartość *maxReplicas* została usawiona na 5
-Ponieważ:
-Quota ogranicza dostępne zasoby: CPU:2000m i MEM:1,5Gi
-Pod *worker* z zadania 2 może zabrać maksymalnie: CPU: 200m i MEM:200Mi
-Więc zostaje nam: 
-CPU = 2000m - 200m = 1800m
-MEM = 1500Mi - 200Mi = 1300Mi
-Pojedyńczy pod deploymentu ma limity CPU: 250m i MEM:250Mi , a więc CPU = 1800m / 250m = 7 i MEM = 1300Mi / 250Mi = 5
+Wartość *maxReplicas* została usawiona na 5 Ponieważ:\
+Quota ogranicza dostępne zasoby: CPU:2000m i MEM:1,5Gi\
+Pod *worker* z zadania 2 może zabrać maksymalnie: CPU: 200m i MEM:200Mi\
+Więc zostaje nam:\
+CPU = 2000m - 200m = 1800m\
+MEM = 1500Mi - 200Mi = 1300Mi\
+Pojedyńczy pod deploymentu ma limity CPU: 250m i MEM:250Mi , a więc CPU = 1800m / 250m = 7 i MEM = 1300Mi / 250Mi = 5\
 Jak widać w przypadku dużego opciążenia przed stowrzeniem więkeszje ilości replik będzie nas ograniczać pamięć. Dlatego maksymalna ilość replik nie powinna przekraczać 5 
 
 # zad5
@@ -32,11 +31,12 @@ NAME                                             REFERENCE               TARGETS
 horizontalpodautoscaler.autoscaling/php-apache   Deployment/php-apache   0%/50%    1         7         1  	  73s
 ```
 # zad6
-Wywołujemy obciążenie na deploymencie serwera apache komendą:
-`kubectl run -i --tty load-generator-1 --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache.zad5; done"`
+Wywołujemy obciążenie na deploymencie serwera apache komendą:\
+`kubectl run -i --tty load-generator-1 --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache.zad5; done"`\
 Utworzy ona poda w przestrzeni default(aby nie zabierać zasobów z zad5) i korzystając w dnsa będzie wysyłać requesty pod adres php-apache.zad5
-Aby spradzić działanie konfiguracji możemy użyć komend:
-`kubectl get horizontalpodautoscalers.autoscaling -n zad5 --watch` - Status z Hpa o ilości utworzonych replik
+
+Aby spradzić działanie konfiguracji możemy użyć komend:\
+`kubectl get horizontalpodautoscalers.autoscaling -n zad5 --watch` - Status z Hpa o ilości utworzonych replik\
 `kubectl describe quota -n zad5` - Zasoby dostępne i używane w ramach ograniczeń quota
 `kubectl top pods -n zad5` - Zużucie zasobów przez repliki
 
