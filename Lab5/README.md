@@ -1,5 +1,5 @@
 # Sprawozdanie Lab5
-Jan Figura GL01\92859 14.11.2023
+Jan Figura GL01\92859 28.11.2023
 
 # zad4
 Wartość *maxReplicas* została usawiona na 5 Ponieważ:\
