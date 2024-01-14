@@ -17,4 +17,4 @@ spec:
               image: janfigurapollub/zad2gitops:latest
               command: [sh, -e, -c]
               args:
-                - git clone https://github.com/janfig/sem2-chmura-config.git /tmp/webapp-config && find /tmp/webapp-config -name '*.yaml' -exec minikube kubectl -- apply -f {} \;
+                - git clone https://github.com/janfig/sem2-chmura-config.git /tmp/webapp-config && find /tmp/webapp-config -name '*.yaml' -exec kubectl -- apply -f {} \;
