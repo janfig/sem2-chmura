@@ -3,7 +3,7 @@
         url = https://github.com/janfig/sem2-chmura-config.git
 [submodule "zad2/source"]
         path = zad2/source
-        url = https://github.com/janfig/sem2-chmura-source.gi
+        url = https://github.com/janfig/sem2-chmura-source.git
 [submodule "zad3/config"]
 	path = zad3/config
 	url = https://github.com/janfig/sem2-chmura-config.git
